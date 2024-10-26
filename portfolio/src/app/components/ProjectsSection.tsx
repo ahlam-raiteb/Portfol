@@ -2,38 +2,42 @@
 import React,  {useState, useRef} from "react";
 import ProjectCard from "./ProjectCard";
 import ProjectTag from "./ProjectTag"
-import {animate, motion, useInView} from "framer-motion";
+import {motion, useInView} from "framer-motion";
 
 
 const ProjectsData = [
     {
-        id:1,
-        title:"React Portfolio Website",
-        description:"project 1 description",
-        image:"images/1.jpeg",
-        tag:["All", "Web"],
-        gitUrl:"/",
-        previewUrl:"/"
+        id: 1,
+        title: "React Portfolio Website",
+        description: "Project 1 description",
+        image: "images/1.jpeg",
+        tag: ["All", "Web"],
+        gitUrl: "https://github.com/araiteb1/Portfol",
+        previewUrl: "/",
+        videoUrl: "/path/to/video1.mp4", 
     },
     {
-        id:2,
-        title:"React Portfolio Website",
-        description:"project 1 description",
-        image:"/image/projects/1.png",
-        tag:["All", "Web"],
-        gitUrl:"/",
-        previewUrl:"/"
+        id: 2,
+        title: "React Portfolio Website",
+        description: "Project 2 description",
+        image: "/image/projects/1.png",
+        tag: ["All", "Web"],
+        gitUrl: "/",
+        previewUrl: "/",
+        videoUrl: "/path/to/video2.mp4", 
     },
     {
-        id:3,
-        title:"React Portfolio Website",
-        description:"project 1 description",
-        image:"/image/projects/1.png",
-        tag:["All", "Web"],
-        gitUrl:"/",
-        previewUrl:"/"
+        id: 3,
+        title: "# Mini RAG Chatbot",
+        description: "A project implements a mini Retrieval-Augmented Generation (RAG) chatbot that answers user queries by leveraging information from PDF documents. It utilizes LangChain, Chroma, and Google Gemini API to provide comprehensive and user-friendly responses.",
+        image: "/image/projects/1.png",
+        tag: ["All", "Web", "Ai"],
+        gitUrl: "https://github.com/araiteb1/RagChatBot",
+        previewUrl: "/",
+        videoUrl: "/path/to/video3.mp4",
     },
-]
+];
+
 const ProjectsSection = () =>{
 
     const [tag, setTag]= useState("All");
@@ -53,9 +57,9 @@ const ProjectsSection = () =>{
 
     };
     return(
-        <section >
-            <h2 className="text-white text-center text-4xl font-bold mt-4 ">My Projects</h2>
-            <div className="text-white flex flex-row justify-center items-center gap-2 py-6">
+        <section  id="projects" className="flex flex-col  w-full" >
+            <h2 className="text-black text-center text-4xl font-bold mt-4 ">My Projects</h2>
+            <div className="text-black flex flex-row justify-center items-center gap-2 py-6">
                 <ProjectTag 
                 onClick={handleTagChange}
                 name="All"
@@ -71,9 +75,14 @@ const ProjectsSection = () =>{
                 name="C++"
                 isSelected={tag === "C++"}
                 />
+                <ProjectTag 
+                onClick={handleTagChange}
+                name="Ai"
+                isSelected={tag === "Ai"}
+                />
                
             </div>
-            <ul ref ={ref} className="grip md:grip-cols-3 gap-8 md:gap-12">
+            <ul ref ={ref} className="flex flex-col w-full grip md:grip-cols-3 gap-8 md:gap-12">
                 {filteredProjects.map((project, index) => (
                     <motion.li 
                         key ={index}
@@ -89,7 +98,7 @@ const ProjectsSection = () =>{
                             imgUrl={project.image} 
                             gitUrl={project.gitUrl}
                             previewUrl={project.previewUrl}
-
+                            videoUrl={project.videoUrl}
                             />
                         </motion.li>
                 ))}

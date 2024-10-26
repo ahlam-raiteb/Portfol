@@ -3,7 +3,7 @@ import React from'react'
 
 const ProjectTag = ({name, onClick, isSelected }) => {
     const buttonStyles = isSelected
-    ? "text-white bg-purple-500"
+    ? "text-black bg-purple-500"
     : "text-[#ADB7BE] border-slate-600"
     return (
             <button 

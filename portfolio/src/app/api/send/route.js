@@ -1,34 +1,32 @@
-// import { EmailTemplate } from '../../../components/EmailTemplate';
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-const fromEmail = process.env.FROM_EMAIL;
+const resend = new Resend("");
+const fromEmail = "";
 
+export async function POST(req) {
+  const body = await req.json();
+  const { email, subject, message } = body;
 
-export async function POST(req, res) {
-  const {body} = req;
-  const {email, subject, message} = body;
-
+  console.log('Attempting to send email to:', email);
   try {
     const data = await resend.emails.send({
       from: fromEmail,
-      to: ["raiteb.ahlam@gmail.com", email],
-      subject: 'Hello world',
+      to: ["", email],
+      subject: subject,
       react: (
         <>
           <h1>{subject}</h1>
           <p>Thank you for contacting us!</p>
-          <p>New message sudmitted:</p>
+          <p>New message submitted:</p>
           <p>{message}</p>
         </>
       ),
     });
 
-   
-
     return NextResponse.json(data);
   } catch (error) {
-    return NextResponse.json({ error });
+    console.error('Error sending email:', error);
+    return NextResponse.json({ error: error.message || 'Error sending email' }, { status: 500 });
   }
 }
