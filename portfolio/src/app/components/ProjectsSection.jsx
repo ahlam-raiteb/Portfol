@@ -20,7 +20,7 @@ const ProjectsData = [
         id: 2,
         title: "React Portfolio Website",
         description: "Project 2 description",
-        image: "/image/projects/1.png",
+        image: "",
         tag: ["All", "Web"],
         gitUrl: "/",
         previewUrl: "/",
@@ -30,7 +30,7 @@ const ProjectsData = [
         id: 3,
         title: "# Mini RAG Chatbot",
         description: "A project implements a mini Retrieval-Augmented Generation (RAG) chatbot that answers user queries by leveraging information from PDF documents. It utilizes LangChain, Chroma, and Google Gemini API to provide comprehensive and user-friendly responses.",
-        image: "/image/projects/1.png",
+        image: "",
         tag: ["All", "Web", "Ai"],
         gitUrl: "https://github.com/araiteb1/RagChatBot",
         previewUrl: "/",
@@ -43,7 +43,7 @@ const ProjectsSection = () =>{
     const [tag, setTag]= useState("All");
     const ref = useRef(null);
     const isInView = useInView(ref, {once: true});
-    const handleTagChange = (newTag:any) => {
+    const handleTagChange = (newTag) => {
         setTag(newTag);
     };
 
@@ -57,9 +57,9 @@ const ProjectsSection = () =>{
 
     };
     return(
-        <section  id="projects" className="flex flex-col  w-full" >
-            <h2 className="text-black text-center text-4xl font-bold mt-4 ">My Projects</h2>
-            <div className="text-black flex flex-row justify-center items-center gap-2 py-6">
+        <section  id="projects" class="flex flex-col  w-full" >
+            <h2 class="text-black text-center text-4xl font-bold mt-4 ">My Projects</h2>
+            <div class="text-black flex flex-row justify-center items-center gap-2 py-6">
                 <ProjectTag 
                 onClick={handleTagChange}
                 name="All"
@@ -82,7 +82,7 @@ const ProjectsSection = () =>{
                 />
                
             </div>
-            <ul ref ={ref} className="flex flex-col w-full grip md:grip-cols-3 gap-8 md:gap-12">
+            <ul ref ={ref} class="flex flex-col w-full grip md:grip-cols-3 gap-8 md:gap-12">
                 {filteredProjects.map((project, index) => (
                     <motion.li 
                         key ={index}

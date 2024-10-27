@@ -16,16 +16,16 @@ const HeroSection = () => {
     };
 
     return (
-        <section className="lg:py-16">
-            <div className="flex flex-col grid grid-cols-1 sm:grid-cols-12">
+        <section class="lg:py-16">
+            <div class="flex flex-col grid grid-cols-1 sm:grid-cols-12">
                 <motion.div 
                     initial={{ opacity: 0, scale: 0.5 }} 
                     animate={{ opacity: 1, scale: 1 }} 
                     transition={{ duration: 0.5 }} 
-                    className="col-span-8 place-self-center text-center sm:text-left justify-self-start"
+                    class="col-span-8 place-self-center text-center sm:text-left justify-self-start"
                 >
-                    <h1 className="text-black mb-4 text-6xl sm:text-4xl lg:text-4xl lg:leading-normal font-extrabold">  
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
+                    <h1 class="text-black mb-4 text-6xl sm:text-4xl lg:text-4xl lg:leading-normal font-extrabold">  
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
                             Welcome, to {" "}
                         </span>
                         <TypeAnimation
@@ -40,11 +40,11 @@ const HeroSection = () => {
                     </h1>
                 </motion.div>
 
-                <div className="rounded-full border w-[230px] h-[230px] lg:w-[350px] lg:self-end lg:h-[350px] relative">
+                <div class="rounded-full border w-[230px] h-[230px] lg:w-[350px] lg:self-end lg:h-[350px] relative">
                     <Image 
                         src={profile}
                         alt="hero image"
-                        className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                        class="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                         width={240}
                         height={240}
                     />
@@ -52,7 +52,7 @@ const HeroSection = () => {
             </div>
             <button 
                 onClick={handleDownload}
-                className="px-6 py-3 w-full sm:w-fit rounded-full bg-white hover:bg-[#CACAEC] text-black border mt-3"
+                class="px-6 py-3 w-full sm:w-fit rounded-full bg-white hover:bg-[#CACAEC] text-black border mt-3"
             >
                 Download CV
             </button>

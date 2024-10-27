@@ -1,8 +1,8 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
-const resend = new Resend("");
-const fromEmail = "";
+const resend = new Resend("resend");
+const fromEmail = "http://localhost:3000/";
 
 export async function POST(req) {
   const body = await req.json();
@@ -12,7 +12,7 @@ export async function POST(req) {
   try {
     const data = await resend.emails.send({
       from: fromEmail,
-      to: ["", email],
+      to: ["raiteb.ahlam@gmail.com", email],
       subject: subject,
       react: (
         <>
@@ -30,3 +30,4 @@ export async function POST(req) {
     return NextResponse.json({ error: error.message || 'Error sending email' }, { status: 500 });
   }
 }
+
